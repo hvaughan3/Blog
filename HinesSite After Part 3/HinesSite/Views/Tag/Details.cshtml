@@ -1,0 +1,51 @@
+﻿@using HinesSite.Models
+@model Tag
+
+@{
+    ViewBag.Title = "Tag Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<caption><h2>Details</h2></caption>
+
+<section>
+    <h4>Tag: </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt> @Html.DisplayNameFor( model => model.Name )       </dt>
+        <dd> @Html.DisplayFor( model => model.Name )           </dd>
+
+        <dt> @Html.DisplayNameFor( model => model.CreatedOn )  </dt>
+        <dd> @Html.DisplayFor( model => model.CreatedOn )      </dd>
+
+        <dt> @Html.DisplayNameFor( model => model.ModifiedOn ) </dt>
+        <dd> @Html.DisplayFor( model => model.ModifiedOn )     </dd>
+
+        <dt> Related Blog Posts </dt>
+        @if(Model.Blogposts != null && Model.Blogposts.Any()) {
+            <dd>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            @foreach (Blogpost item in Model.Blogposts) {
+                                <td>
+                                    @Html.ActionLink(item.Title, "Details", "Blogpost", new { id = item.BlogpostId }, null)
+                                    @item.CreatedOn.ToShortDateString()
+                                </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        }
+        else {
+            <dd>No blog posts have been linked to this tag.</dd>
+        }
+    </dl>
+</section>
+<section>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TagId }) | @Html.ActionLink("Back to List", "Index")
+    </p>
+</section>
+

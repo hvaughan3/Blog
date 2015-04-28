@@ -1,0 +1,11 @@
+﻿@model DateTime?
+
+@{
+    DateTime dt = DateTime.Now;
+    if ( Model != null )
+    {
+        dt = ( DateTime )Model;
+
+    }
+    @Html.TextBox( "", string.Format( "{0:d}", dt.ToShortDateString() ), new { @class = "datefield", type = "date" } )
+}

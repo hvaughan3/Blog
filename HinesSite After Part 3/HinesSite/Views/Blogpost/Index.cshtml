@@ -1,0 +1,91 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using System.Linq;
+@using HinesSite.Models;
+
+@*The @Model Specifies that the view now gets a PagedList object instead of a List object*@
+@model IPagedList<Blogpost>
+
+@{
+    ViewBag.Title = "Blog Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/pagedlist")
+
+<caption><h2>Displaying latest @Model.Count() posts</h2></caption>
+
+<p> @Html.ActionLink("Create New Post", "Create") </p>
+
+@*Using an overloaded BeginForm that allows it to specify FormMethod.Get instead of its normal Post.
+    This allows users to bookmark the query string URL*@
+@using (Html.BeginForm("Index", "Blogpost", FormMethod.Get)) {
+    <section>
+        <p>
+            @*Text box is initialized with the current search string so you can see the current search string when you
+                click a new page*@
+            Search by title, subtitle, or author: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    </section>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*Column header links use the query string to pass the current search string to the controller so user
+                    can sort within filter results*@
+                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th> Subtitle </th>
+            <th> Body     </th>
+            <th>
+                @Html.ActionLink("Created On", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th> Modified On </th>
+            <th> Author      </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (Blogpost item in Model) {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subtitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    <nav>
+                        @Html.ActionLink("Edit",    "Edit",    new { id = item.BlogpostId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.BlogpostId }) |
+                        @Html.ActionLink("Delete",  "Delete",  new { id = item.BlogpostId })
+                    </nav>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+<br />
+<section>
+    @*The current page and total # of pages are displayed. If the page # is greater than the page count "Page 0 of 0" is shown"*@
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @*Paging buttons are displayed using the PagedListPager helper*@
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</section>

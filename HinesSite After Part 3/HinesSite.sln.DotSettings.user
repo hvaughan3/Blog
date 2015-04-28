@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/Highlighting/AnalysisEnabled/@EntryValue">SOLUTION</s:String>
+	<s:Boolean x:Key="/Default/CodeStyle/LiveTemplatesUseVar/PreferVar/@EntryValue">False</s:Boolean>
+	
+	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=788518380D3D487888C09BFF69A1C6C2/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=788518380D3D487888C09BFF69A1C6C2/Name/@EntryValue">Index</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=788518380D3D487888C09BFF69A1C6C2/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="nUnit" Id="HinesSite.Tests.Controllers.BlogpostControllerTest" type="NUnitTestFixtureElement" Project="E80789D0-8C7A-4314-8C08-6B3549AAEE91" /&gt;&lt;UnitTestElement Provider="nUnit" Id="HinesSite.Tests.Controllers.BlogpostControllerTest.Index" ParentId="HinesSite.Tests.Controllers.BlogpostControllerTest" type="NUnitTestElement" TypeName="HinesSite.Tests.Controllers.BlogpostControllerTest" MethodName="Index" Project="E80789D0-8C7A-4314-8C08-6B3549AAEE91" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String>
+	
+	
+	</wpf:ResourceDictionary>

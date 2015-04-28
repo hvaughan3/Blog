@@ -1,0 +1,37 @@
+﻿@using HinesSite.ViewModels
+@model IEnumerable<BlogpostGroup>
+
+@{ ViewBag.Title = "About"; }
+
+<caption><h2>About</h2></caption>
+
+<caption><h4>Welcome!</h4></caption>
+<section>
+    <img src="~/Content/images/dicaprio-django.gif" alt="Leonardo Dicaprio on Django Unchained" width="500" height="212" />
+    <hr />
+</section>
+
+<caption><h3>Blog Post Statistics</h3></caption>
+
+<section>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> @Model.Count() Blog Posts </th>
+                <th> Title </th>
+                <th> Enrollment Date </th>
+            </tr>
+        </thead>
+
+        @foreach (BlogpostGroup item in Model) {
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td> @Html.ActionLink(item.Title, "Details", "Blogpost", new { id = item.BlogpostId }, null) </td>
+                    <td> @Html.DisplayFor(modelItem => item.CreatedOn) </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</section>
+

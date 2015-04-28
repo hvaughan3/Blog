@@ -1,0 +1,104 @@
+﻿@model HinesSite.Models.Blogpost
+
+@{
+    ViewBag.Title = "Post Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Post Details</h2>
+
+<div>
+    <h4>Details of blog post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Created By
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelItem => Model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedOn)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    @foreach (var item in Model.Tags)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                    }
+                </tr>
+            </table>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+        <dd>
+            <table class="table">
+                @foreach (var comment in Model.Comments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => comment.Title)
+                            <br />
+                            @Html.DisplayFor(modelItem => comment.Name)
+                            <br />
+                            @Html.DisplayFor(modelItem => comment.Contact)
+                            <br />
+                            @Html.DisplayFor(modelItem => comment.CommentBody)
+                            <br />
+                            @Html.DisplayFor(modelItem => comment.CreatedOn)
+                            <br />
+                            @if (comment.ModifiedOn != null)
+                            {
+                                @Html.DisplayFor(modelItem => comment.ModifiedOn)
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogpostId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

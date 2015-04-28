@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="hvaughan" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\other\\Documents\\SpiderOak\ Hive\\Soegti\ Docs\\Technical\\Code\\Practice\\HinesSite\ After\ Part\ 3\\HinesSite\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\other\\Documents\\SpiderOak\ Hive\\Soegti\ Docs\\Technical\\Code\\Practice\\HinesSite\ After\ Part\ 3\\HinesSite\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:tpca5guvwd.database.windows.net,1433;Initial Catalog=hvaughan;User ID=hvaughan3@tpca5guvwd;Password=Gaatgun1" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\other\\Documents\\SpiderOak\ Hive\\Soegti\ Docs\\Technical\\Code\\Practice\\HinesSite\ After\ Part\ 3\\HinesSite\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

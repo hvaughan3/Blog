@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Hines' Site</title>
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+        <!--[ if lt IE 9]>
+            <script src="~/Scripts/html5shiv.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <nav>
+            @*<div>
+                    <ul id="menu">
+                        <li>
+                            @Html.ActionLink("Invalid Controller", "UnHandledEddor", "Account",
+                                routeValues: null, htmlAttributes: new { id = "invalidControllerLink"})
+                        </li>
+                        <li>
+                            @Html.ActionLink("Invalid Action", "Home", "InvalidAction",
+                                routeValues: null, htmlAttributes: new { id = "invalidActionLink"})
+                        </li>
+                        <li>
+                            @Html.ActionLink("Invalid Values", "Home", "ServerSide404",
+                            routeValues: new {id = 99}, htmlAttributes: new {id = "invalidValuesLink"})
+                        </li>
+                    </ul>
+                </div>*@
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Hines' Site", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home"          , "Index"   , "Home"    , null, new { title = "Home Page"  })</li>
+                            <li>@Html.ActionLink("Blog Posts"    , "Index"   , "Blogpost", null, new { title = "Blog Posts" })</li>
+                            <li>@Html.ActionLink("Blog Post Tags", "Index"   , "Tag"     , null, new { title = "Tags"       })</li>
+                            <li>@Html.ActionLink("User List"     , "UserList", "Account" , null, new { title = "User List"  })</li>
+                            <li>@Html.ActionLink("About"         , "About"   , "Home"    , null, new { title = "About"      })</li>
+                            <li>@Html.ActionLink("Contact"       , "Contact" , "Home"    , null, new { title = "Contact"    })</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Hines' Site</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", false)
+    </body>
+</html>

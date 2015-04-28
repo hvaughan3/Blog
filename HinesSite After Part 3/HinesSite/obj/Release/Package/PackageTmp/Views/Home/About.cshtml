@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HinesSite.ViewModels.BlogpostGroup>
+
+@using System;
+@using System.Collections.Generic;
+@using HinesSite.Models
+@using HinesSite.ViewModels
+
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>@*@ViewBag.Title*@ About</h2>
+<h3>Blog Post Statistics</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Model.Count() Blog Posts
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Enrollment Date
+        </th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td></td>
+            <td>
+                @Html.ActionLink(item.Title, "Details", "Blogpost", new { id = item.BlogpostId }, null)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+        </tr>
+    }
+</table>

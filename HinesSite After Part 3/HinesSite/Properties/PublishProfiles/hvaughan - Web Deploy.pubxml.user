@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1VYUWBAk+EuurpyKufKsIAAAAAACAAAAAAAQZgAAAAEAACAAAACRv0JANEWLJBAOWHyD73VHieiw2Gn0nb6XX1lX7W+oLQAAAAAOgAAAAAIAACAAAAAkix1F4GY6Yr04iON9tkkFWTzpdy0URL4VwdSPAq7hGoAAAABI9KKP6UNT0p49Q1mR/JEVnqNdmou3GEbyE5dr9dCzhDcL4Xe75lJpnyc12DuPpvabJr7s3qxGfK1NJ9V9T9HyR+cWX9CRWHHMfgKo3bYRwb5NlV1ktOhe+3CLY2rG13yEW+XmQrloN5jSdQS6P1TldylCbmUWK/k5hQRBm3wdoUAAAAAf5VoRl3ZFkogiItFcndqmaVjjRV97VjQotOi7OWhnscs4bePJJHjVbXVMUK6/Cel62Iuhypfr4sA15J6vvtQa</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <AzureDBConnectionStrings Include="Data Source=tcp:tpca5guvwd.database.windows.net,1433;Initial Catalog=hvaughan;User ID=hvaughan3@tpca5guvwd;Password=Gaatgun1" />
+    <AzureDBConnectionStrings Include="Server=tcp:wh7jper2t2.database.windows.net,1433;Database=hvaughan;User ID=team5user@wh7jper2t2;Password={your_password_here};Trusted_Connection=False;Encrypt=True;Connection Timeout=30" />
+  </ItemGroup>
+</Project>

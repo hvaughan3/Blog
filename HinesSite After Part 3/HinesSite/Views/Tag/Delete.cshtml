@@ -1,0 +1,40 @@
+﻿@model HinesSite.Models.Tag
+
+@{
+    ViewBag.Title = "Delete Tag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<caption><h2>Delete: @Html.DisplayFor(model => model.Name)</h2></caption>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@*<p class="error">@ViewBag.SaveChangesErrorMessage</p>
+  <p class="error">@ViewBag.ConcurrencyErrorMessage</p>*@
+
+<h3>Are you sure you want to delete the @Html.DisplayFor(model => model.Name) Tag?</h3>
+
+<section>
+    <hr />
+    <dl class="dl-horizontal" >
+        <dt> @Html.DisplayNameFor(model => model.Name)       </dt>
+        <dd> @Html.DisplayFor(model => model.Name)           </dd>
+
+        <dt> @Html.DisplayNameFor(model => model.CreatedOn)  </dt>
+        <dd> @Html.DisplayFor(model => model.CreatedOn)      </dd>
+
+        <dt> @Html.DisplayNameFor(model => model.ModifiedOn) </dt>
+        <dd> @Html.DisplayFor(model => model.ModifiedOn)     </dd>
+
+    </dl>
+
+    @using(Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.TagId)
+        @Html.HiddenFor(model => model.RowVersion)
+
+        <section>
+            <div class="form-actions no-color" >
+                <input type="submit" value="Delete" class="btn btn-default" /> | @Html.ActionLink("Back to List", "Index")
+            </div>
+        </section>
+    }
+</section>

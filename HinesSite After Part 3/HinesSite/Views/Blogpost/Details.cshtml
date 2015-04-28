@@ -1,0 +1,88 @@
+﻿@using HinesSite.Models
+@model Blogpost
+
+@{
+    ViewBag.Title = "Post Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<caption><h2>Post Details</h2></caption>
+
+<section>
+    <h4>Details: @Html.DisplayFor(model => model.Title) </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt> @Html.DisplayNameFor(model => model.UserId)        </dt>
+        <dd> @Html.DisplayFor(modelItem => Model.User.UserName) </dd>
+
+        <dt> @Html.DisplayNameFor(model => model.Subtitle)      </dt>
+        <dd> @Html.DisplayFor(model => model.Subtitle)          </dd>
+
+        <dt> @Html.DisplayNameFor(model => model.Body)          </dt>
+        <dd> @Html.DisplayFor(model => model.Body)              </dd>
+
+        <dt> @Html.DisplayNameFor( model => model.CreatedOn )   </dt>
+        <dd> @Html.DisplayFor( model => model.CreatedOn )       </dd>
+
+        <dt> @Html.DisplayNameFor( model => model.ModifiedOn )  </dt>
+        <dd> @Html.DisplayFor( model => model.ModifiedOn )      </dd>
+
+        @if ( Model.Tags != null && Model.Tags.Any() ) {
+
+            if ( Model.Tags.Count() > 1 ) {
+                <dt> @Model.Tags.Count() Related Tags </dt>
+            }
+            else {
+                <dt> Related Tag </dt>
+            }
+            <dd>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            @foreach (Tag tag in Model.Tags) {
+                                <td>
+                                    @Html.ActionLink(tag.Name, "Details", "Tag", new { id = tag.TagId })
+                                </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        }
+
+        @if(Model.Comments != null && Model.Comments.Any()) {
+            if ( Model.Comments.Count() > 1 ) {
+                <dt> @Model.Comments.Count() Related Comments </dt>
+            }
+            else {
+                <dt> Only Comment </dt>
+            }
+            <dd>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            @foreach (Comment comment in Model.Comments) {
+                                <td>
+                                    @Html.DisplayFor(modelItem => comment.Title)
+                                    <br />
+                                    @Html.DisplayFor(modelItem => comment.Name)
+                                    <br />
+                                    @Html.DisplayFor(modelItem => comment.Contact)
+                                    <br />
+                                    @Html.DisplayFor(modelItem => comment.CreatedOn)
+                                </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        }
+    </dl>
+</section>
+<section>
+    <p>
+        <nav>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BlogpostId }) | @Html.ActionLink("Back to List", "Index")
+        </nav>
+    </p>
+</section>
